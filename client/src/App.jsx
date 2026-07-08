@@ -1,10 +1,11 @@
-import Test from "./components/Test";
+import { Routes, Route } from "react-router-dom";
+import CRMAdminDashboard from "./pages/CRMAdminDashboard";
 
 function App() {
   return (
-    <div>
-      <Test />
-    </div>
+    <Routes>
+      <Route path="/" element={<CRMAdminDashboard />} />
+    </Routes>
   );
 }
 

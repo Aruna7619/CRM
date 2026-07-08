@@ -1,0 +1,53 @@
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.dashboard-content {
+  padding: 20px;
+}
+.sidebar-overlay-admin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* SECTION WRAPPER */
+.stats-section-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 👈 space between Row 1 and Row 2 */
+}
+
+/* GRID */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+/* TABLET + IPAD */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* MOBILE → 2 CARDS */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-section {
+    gap: 15px; /* slightly tighter spacing on mobile */
+  }
+}

@@ -1,0 +1,80 @@
+.table-container {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+.table-title {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* TABLE */
+.leads-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.leads-table thead {
+  background: #f7f8fa;
+}
+
+.leads-table th {
+  text-align: left;
+  padding: 12px;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.leads-table td {
+  padding: 12px;
+  border-bottom: 1px solid #f1f1f1;
+  color: #333;
+}
+
+/* STATUS BADGES */
+.status-admin {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status-admin.approved {
+  background: #e6f7ee;
+  color: #1a8f4c;
+}
+
+.status-admin.pending {
+  background: #fff4e5;
+  color: #d9822b;
+}
+
+.status-admin.rejected {
+  background: #ffe6e6;
+  color: #d93025;
+}
+/* UNDER REVIEW */
+.status-admin.review {
+  background: #e8f1ff;
+  color: #2563eb;
+}
+
+/* SANCTIONED */
+.status-admin.sanctioned {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+/* DISBURSED */
+.status-admin.disbursed {
+  background: #e6fffb;
+  color: #0f766e;
+}
