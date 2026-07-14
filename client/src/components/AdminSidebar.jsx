@@ -29,7 +29,7 @@ const AdminSidebar = ({
         {
             name: "Dashboard",
             icon: <FiGrid />,
-            path: "/CRMAdminDashboard",
+            path: "/",
         },
         {
             name: "Agents",
@@ -74,7 +74,7 @@ const AdminSidebar = ({
   ${mobileOpen ? "open" : ""}`}
     >
         <div className="sidebar-top">
-            {!collapsed && <h2>DSA CRM</h2>}
+            {!collapsed && <h2>CRM</h2>}
 
             <button
                 className="toggle-btn"
