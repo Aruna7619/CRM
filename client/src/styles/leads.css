@@ -1,0 +1,31 @@
+.leads-page {
+  padding: 25px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.leads-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.leads-header h2 {
+  margin: 0;
+  color: #1f2937;
+}
+
+.add-lead-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.add-lead-btn:hover {
+  background: #1d4ed8;
+}
