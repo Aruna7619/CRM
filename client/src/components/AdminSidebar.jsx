@@ -29,7 +29,7 @@ const AdminSidebar = ({
         {
             name: "Dashboard",
             icon: <FiGrid />,
-            path: "/",
+            path: "/dashboard",
         },
         {
             name: "Agents",
