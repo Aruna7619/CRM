@@ -1,16 +1,22 @@
 import { Routes, Route } from "react-router-dom";
-import CRMAdminDashboard from "./pages/CRMAdminDashboard";
+
 import Login from "./pages/Login";
+import CRMAdminDashboard from "./pages/CRMAdminDashboard";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
     <Routes>
+
+      {/* Login Page */}
       <Route path="/" element={<Login />} />
 
-      <Route
-        path="/admin-dashboard"
-        element={<CRMAdminDashboard />}
-      />
+      {/* Admin Dashboard */}
+      <Route path="/admin-dashboard" element={<CRMAdminDashboard />} />
+
+      {/* Dashboard */}
+      <Route path="/dashboard" element={<Dashboard />} />
+
     </Routes>
   );
 }
