@@ -1,20 +1,27 @@
 import React from "react";
 import "../../styles/deleteLeadModal.css";
 
-const DeleteLeadModal = ({ isOpen, onClose, lead }) => {
+const DeleteLeadModal = ({
+  isOpen,
+  onClose,
+ lead,
+  leads,
+  setLeads,
+}) => {
   if (!isOpen || !lead) return null;
 
   const handleDelete = () => {
-    // API call will be added later
-    console.log("Deleted:", lead);
+    const updatedLeads = leads.filter(
+      (item) => item.id !== lead.id
+    );
 
+    setLeads(updatedLeads);
     onClose();
   };
 
   return (
     <div className="delete-modal-overlay">
       <div className="delete-modal">
-
         <h2>Delete Lead</h2>
 
         <p>
@@ -37,7 +44,6 @@ const DeleteLeadModal = ({ isOpen, onClose, lead }) => {
             Delete
           </button>
         </div>
-
       </div>
     </div>
   );

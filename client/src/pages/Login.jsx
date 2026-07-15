@@ -26,7 +26,7 @@ const handleLogin = (e) => {
     password === "admin123" &&
     role === "Admin"
   ) {
-    navigate("/admin-dashboard");
+    navigate("/dashboard");
     return;
   }
 

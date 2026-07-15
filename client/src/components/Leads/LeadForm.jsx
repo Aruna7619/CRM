@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import "../../styles/leadForm.css";
 
-const LeadForm = ({ lead, onClose }) => {
+const LeadForm = ({
+  lead,
+  leads,
+  setLeads,
+  onClose,
+}) => {
   const [formData, setFormData] = useState({
     name: lead?.name || "",
     company: lead?.company || "",
@@ -13,16 +18,33 @@ const LeadForm = ({ lead, onClose }) => {
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    });
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    if (lead) {
+      // Edit Lead
+      const updatedLeads = leads.map((item) =>
+        item.id === lead.id
+          ? { ...item, ...formData }
+          : item
+      );
+
+      setLeads(updatedLeads);
+    } else {
+      // Add Lead
+      const newLead = {
+        id: Date.now(),
+        ...formData,
+      };
+
+      setLeads([...leads, newLead]);
+    }
 
     onClose();
   };
@@ -65,7 +87,7 @@ const LeadForm = ({ lead, onClose }) => {
         <div className="form-group">
           <label>Phone</label>
           <input
-            type="tel"
+            type="text"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
@@ -74,6 +96,7 @@ const LeadForm = ({ lead, onClose }) => {
 
         <div className="form-group">
           <label>Lead Source</label>
+
           <select
             name="source"
             value={formData.source}
@@ -81,15 +104,16 @@ const LeadForm = ({ lead, onClose }) => {
           >
             <option value="">Select Source</option>
             <option>Website</option>
-            <option>WhatsApp</option>
             <option>Facebook</option>
             <option>Instagram</option>
+            <option>WhatsApp</option>
             <option>Referral</option>
           </select>
         </div>
 
         <div className="form-group">
           <label>Status</label>
+
           <select
             name="status"
             value={formData.status}
@@ -106,6 +130,7 @@ const LeadForm = ({ lead, onClose }) => {
 
       <div className="form-group">
         <label>Notes</label>
+
         <textarea
           rows="4"
           name="notes"
