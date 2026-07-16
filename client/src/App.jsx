@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Leads from "./pages/Leads";
 
+import ClientManagement from "./pages/ClientManagement";
+
 function App() {
   return (
     <Routes>
@@ -23,6 +25,8 @@ function App() {
       
       
       <Route path="/leads" element={<Leads />} />
+
+      <Route path="/clients" element={<ClientManagement />} />
 
     </Routes>
   );
