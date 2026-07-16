@@ -8,6 +8,8 @@ import Leads from "./pages/Leads";
 import Quotations from "./pages/Quotations";
 // import Invoices from "./pages/Invoices";
 
+import ClientManagement from "./pages/ClientManagement";
+
 function App() {
   return (
     <Routes>
@@ -22,6 +24,8 @@ function App() {
       <Route path="/leads" element={<Leads />} />
       <Route path="/quotations" element={<Quotations />} />
       {/* <Route path="/invoices" element={<Invoices />} /> */}
+
+      <Route path="/clients" element={<ClientManagement />} />
 
     </Routes>
   );
