@@ -31,30 +31,46 @@ const AdminSidebar = ({
             icon: <FiGrid />,
             path: "/dashboard",
         },
-        {
-            name: "Agents",
-            icon: <FiUsers />,
-            path: "/agent-management",
-        },
+
         {
             name: "Leads",
             icon: <FiFileText />,
             path: "/leads",
         },
+         {
+            name: "Clients",
+            icon: <FiUsers />,
+            path: "/client-management",
+        },
         {
-            name: "Banks",
+            name: "Quotations",
             icon: <BsBank />,
-            path: "/banks",
+            path: "/quotations",
         },
         {
-            name: "Loan Types",
+            name: "Invoices",
             icon: <FiCreditCard />,
-            path: "/loan-types",
+            path: "/invoices",
         },
         {
-            name: "Payouts",
+            name: "Payments",
             icon: <FiDollarSign />,
-            path: "/payouts",
+            path: "/payments",
+        },
+        {
+            name: "Social Media",
+            icon: <HiOutlineDocumentReport />,
+            path: "/social-media",
+        },
+        {
+            name: "Tasks",
+            icon: <FiUser />,
+            path: "/tasks",
+        },
+        {
+            name: "Calendar",
+            icon: <FiGrid />,
+            path: "/calendar",
         },
         {
             name: "Reports",
@@ -62,10 +78,15 @@ const AdminSidebar = ({
             path: "/reports",
         },
         {
-            name: "Profile",
+            name: "Settings",
             icon: <FiUser />,
-            path: "/profile",
+            path: "/settings",
         },
+        {
+            name: "Users",
+            icon: <FiUser />,
+            path: "/users",
+        }
     ];
 
     return (<aside

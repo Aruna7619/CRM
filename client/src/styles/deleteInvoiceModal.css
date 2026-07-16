@@ -1,0 +1,103 @@
+.delete-invoice-overlay {
+
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1200;
+
+}
+
+
+
+.delete-invoice-modal {
+
+  width: 400px;
+  max-width: 90%;
+
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 12px;
+
+  text-align: center;
+
+}
+
+
+
+.delete-invoice-modal h2 {
+
+  margin-top: 0;
+  color: #dc2626;
+
+}
+
+
+
+.delete-invoice-modal p {
+
+  color: #4b5563;
+  margin: 20px 0;
+
+}
+
+
+
+.delete-actions {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+
+}
+
+
+
+.delete-actions button {
+
+  padding: 10px 20px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+}
+
+
+
+.cancel-delete-btn {
+
+  background: #e5e7eb;
+
+  color: #374151;
+
+}
+
+
+
+.confirm-delete-btn {
+
+  background: #dc2626;
+
+  color: white;
+
+}
+
+
+
+.confirm-delete-btn:hover {
+
+  background: #b91c1c;
+
+}

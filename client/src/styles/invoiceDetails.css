@@ -1,0 +1,170 @@
+.invoice-details-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+
+.invoice-details-modal {
+  width: 900px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+
+/* Header */
+
+.invoice-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+
+.invoice-details-header h2 {
+  margin: 0;
+  color: #1f2937;
+}
+
+
+.invoice-details-header button {
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+
+.invoice-details-header button:hover {
+  color: #dc2626;
+}
+
+
+
+/* Invoice info */
+
+.invoice-info {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+
+.invoice-info strong {
+  margin-right: 5px;
+}
+
+
+
+/* Client */
+
+.client-info {
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
+.client-info p {
+  margin: 8px 0;
+}
+
+
+
+/* Product table */
+
+.details-product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+
+.details-product-table th,
+.details-product-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+
+.details-product-table th {
+  background: #f8fafc;
+}
+
+
+
+/* Summary */
+
+.invoice-summary {
+  margin-top: 20px;
+  text-align: right;
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+
+.invoice-summary p {
+  margin: 8px 0;
+}
+
+
+.invoice-summary h3 {
+  color: #2563eb;
+  margin-top: 15px;
+}
+
+
+
+/* Notes */
+
+.invoice-notes {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff7ed;
+  border-radius: 10px;
+}
+
+
+.invoice-notes p {
+  margin-top: 8px;
+}
+
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .invoice-info {
+    grid-template-columns: 1fr;
+  }
+
+
+  .details-product-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+
+  .invoice-details-modal {
+    padding: 15px;
+  }
+
+}

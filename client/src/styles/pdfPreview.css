@@ -1,0 +1,104 @@
+.pdf-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.pdf-container {
+  width: 900px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.pdf-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pdf-header h1 {
+  margin-bottom: 10px;
+}
+
+.pdf-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+
+.pdf-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pdf-table th,
+.pdf-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.pdf-table th {
+  background: #f5f5f5;
+}
+
+.pdf-total {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.pdf-notes {
+  margin-top: 25px;
+}
+
+.pdf-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.download-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background: #1d4ed8;
+}
+
+.cancel-btn {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background: #4b5563;
+}
+
+@media (max-width:768px) {
+  .pdf-info {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pdf-table {
+    display: block;
+    overflow-x: auto;
+  }
+}

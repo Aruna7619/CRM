@@ -1,0 +1,108 @@
+.invoice-pdf-overlay {
+
+  position: fixed;
+  inset:0;
+
+  background:rgba(0,0,0,0.5);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  z-index:1300;
+
+}
+
+
+
+.invoice-pdf-modal {
+
+  width:450px;
+
+  max-width:90%;
+
+  background:white;
+
+  border-radius:12px;
+
+  padding:25px;
+
+}
+
+
+
+.invoice-pdf-header {
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  border-bottom:1px solid #eee;
+
+  padding-bottom:15px;
+
+}
+
+
+
+.invoice-pdf-header h2 {
+
+  margin:0;
+
+}
+
+
+
+.invoice-pdf-header button {
+
+  border:none;
+
+  background:none;
+
+  font-size:28px;
+
+  cursor:pointer;
+
+}
+
+
+
+.pdf-preview-content {
+
+  padding:20px 0;
+
+  color:#374151;
+
+}
+
+
+
+.download-pdf-btn {
+
+  width:100%;
+
+  padding:12px;
+
+  background:#7c3aed;
+
+  color:white;
+
+  border:none;
+
+  border-radius:8px;
+
+  cursor:pointer;
+
+  font-size:15px;
+
+}
+
+
+
+.download-pdf-btn:hover {
+
+  background:#6d28d9;
+
+}
