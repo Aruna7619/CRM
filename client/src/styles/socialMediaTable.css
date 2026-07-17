@@ -1,0 +1,149 @@
+.social-table-container{
+    margin-top:20px;
+    background:#fff;
+    border-radius:10px;
+    padding:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    overflow-x:auto;
+}
+
+.social-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:950px;
+}
+
+/* Table Header */
+
+.social-table th{
+    background:#2563eb;
+    color:#fff;
+    padding:14px;
+    text-align:left;
+    font-size:15px;
+    font-weight:600;
+}
+
+/* Table Body */
+
+.social-table td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+    vertical-align:middle;
+}
+
+.social-table tbody tr:hover{
+    background:#f8fafc;
+}
+
+/* Status */
+
+.status-approved{
+    background:#dcfce7;
+    color:#15803d;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status-pending{
+    background:#fef3c7;
+    color:#b45309;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status-rejected{
+    background:#fee2e2;
+    color:#dc2626;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+/* Action Buttons */
+
+.action-column{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.action-btn{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.3s;
+    font-size:18px;
+}
+
+/* View */
+
+.view-btn{
+    background:#10b981;
+    color:#fff;
+}
+
+.view-btn:hover{
+    background:#059669;
+}
+
+/* Edit */
+
+.edit-btn{
+    background:#2563eb;
+    color:#fff;
+}
+
+.edit-btn:hover{
+    background:#1d4ed8;
+}
+
+/* Delete */
+
+.delete-btn{
+    background:#dc2626;
+    color:#fff;
+}
+
+.delete-btn:hover{
+    background:#b91c1c;
+}
+
+/* Download */
+
+.download-btn{
+    background:#7c3aed;
+    color:#fff;
+}
+
+.download-btn:hover{
+    background:#6d28d9;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+    .social-table th,
+    .social-table td{
+        padding:12px 10px;
+        font-size:14px;
+    }
+
+    .action-btn{
+        width:34px;
+        height:34px;
+        font-size:16px;
+    }
+
+}

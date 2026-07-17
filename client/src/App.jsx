@@ -10,6 +10,11 @@ import Invoices from "./pages/Invoices";
 
 import ClientManagement from "./pages/ClientManagement";
 
+import Payments from "./pages/Payments";
+
+import SocialMediaLibrary from "./pages/SocialMediaLibrary";
+import SocialMediaTemplates from "./pages/SocialMediaTemplates";
+
 function App() {
   return (
     <Routes>
@@ -27,6 +32,15 @@ function App() {
 
       <Route path="/clients" element={<ClientManagement />} />
 
+      <Route path="/payments" element={<Payments />} />
+
+
+      <Route path="/social-media" element={<SocialMediaLibrary />} />
+
+<Route
+  path="/social-media-templates"
+  element={<SocialMediaTemplates />}
+/>
     </Routes>
   );
 }
