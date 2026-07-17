@@ -1,0 +1,87 @@
+/* ================= Gallery ================= */
+
+.template-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+/* ================= Card ================= */
+
+.template-item{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    cursor:pointer;
+    border:1px solid #e5e7eb;
+    transition:.3s;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.template-item:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+}
+
+/* ================= Image ================= */
+
+.template-item img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    background:#f8fafc;
+}
+
+/* ================= Content ================= */
+
+.template-info{
+    padding:15px;
+}
+
+.template-info h4{
+    margin:0;
+    font-size:18px;
+    color:#1e293b;
+    font-weight:600;
+}
+
+.template-info p{
+    margin-top:8px;
+    color:#64748b;
+    font-size:14px;
+}
+
+/* ================= Empty ================= */
+
+.no-template{
+    margin-top:60px;
+    text-align:center;
+    background:#fff;
+    padding:50px;
+    border-radius:12px;
+    border:2px dashed #cbd5e1;
+}
+
+.no-template h3{
+    color:#334155;
+    margin-bottom:10px;
+}
+
+.no-template p{
+    color:#64748b;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:768px){
+
+    .template-gallery{
+        grid-template-columns:1fr;
+    }
+
+    .template-item img{
+        height:190px;
+    }
+
+}
