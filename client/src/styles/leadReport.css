@@ -1,108 +1,114 @@
-.recent-invoices {
+.lead-report {
+  margin-top: 25px;
   background: #fff;
-  padding: 20px;
   border-radius: 12px;
+  padding: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   width: 100%;
   box-sizing: border-box;
   overflow-x: auto;
 }
 
-.recent-invoices h3 {
+.lead-report-header {
   margin-bottom: 20px;
+}
+
+.lead-report-header h3 {
+  margin: 0;
+  color: #1f2937;
   font-size: 22px;
 }
 
-.recent-invoices table {
+.lead-report-table {
   width: 100%;
-  min-width: 650px;
+  min-width: 700px;
   border-collapse: collapse;
 }
 
-.recent-invoices th,
-.recent-invoices td {
-  padding: 12px;
+.lead-report-table th,
+.lead-report-table td {
+  padding: 14px;
   text-align: left;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #e5e7eb;
   white-space: nowrap;
 }
 
-.recent-invoices th {
-  background: #f5f5f5;
+.lead-report-table th {
+  background: #f8fafc;
   font-weight: 600;
 }
 
-.recent-invoices tr:hover {
-  background: #fafafa;
+.lead-report-table tr:hover {
+  background: #f9fafb;
 }
 
-.status {
+.lead-status {
   display: inline-block;
-  padding: 5px 10px;
+  padding: 5px 12px;
   border-radius: 20px;
   font-size: 13px;
   font-weight: 600;
 }
 
-.status.paid {
+.lead-status.converted {
   background: #dcfce7;
   color: #15803d;
 }
 
-.status.pending {
+.lead-status.pending {
   background: #fef3c7;
   color: #b45309;
 }
 
-.status.overdue {
+.lead-status.lost {
   background: #fee2e2;
   color: #b91c1c;
 }
 
 /* ---------- Tablet ---------- */
 @media (max-width: 768px) {
-  .recent-invoices {
+  .lead-report {
     padding: 18px;
   }
 
-  .recent-invoices h3 {
+  .lead-report-header h3 {
     font-size: 20px;
   }
 
-  .recent-invoices th,
-  .recent-invoices td {
+  .lead-report-table th,
+  .lead-report-table td {
     padding: 10px;
     font-size: 14px;
   }
 
-  .status {
+  .lead-status {
     font-size: 12px;
-    padding: 4px 8px;
+    padding: 4px 10px;
   }
 }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 480px) {
-  .recent-invoices {
+  .lead-report {
     padding: 15px;
+    margin-top: 20px;
   }
 
-  .recent-invoices h3 {
+  .lead-report-header h3 {
     font-size: 18px;
-    margin-bottom: 15px;
   }
 
-  .recent-invoices table {
-    min-width: 550px;
+  .lead-report-table {
+    min-width: 600px;
   }
 
-  .recent-invoices th,
-  .recent-invoices td {
+  .lead-report-table th,
+  .lead-report-table td {
     padding: 8px;
     font-size: 13px;
   }
 
-  .status {
+  .lead-status {
     font-size: 11px;
     padding: 4px 8px;
   }

@@ -1,0 +1,88 @@
+.export-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.export-modal {
+  width: 420px;
+  max-width: 95%;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.export-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 25px;
+  border-bottom: 1px solid #eee;
+}
+
+.export-modal-header h2 {
+  margin: 0;
+}
+
+.close-btn {
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #dc2626;
+}
+
+.export-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 25px;
+}
+
+.export-options button {
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 15px;
+}
+
+.pdf-btn {
+  background: #dc2626;
+}
+
+.pdf-btn:hover {
+  background: #b91c1c;
+}
+
+.excel-btn {
+  background: #16a34a;
+}
+
+.excel-btn:hover {
+  background: #15803d;
+}
+
+.print-btn {
+  background: #2563eb;
+}
+
+.print-btn:hover {
+  background: #1d4ed8;
+}
+
+.cancel-btn {
+  background: #6b7280;
+}
+
+.cancel-btn:hover {
+  background: #4b5563;
+}

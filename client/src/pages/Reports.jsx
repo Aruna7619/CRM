@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import AdminLayout from "../components/AdminLayout";
 import "../styles/reports.css";
@@ -7,6 +8,31 @@ import ReportTable from "../components/ReportTable";
 import ReportExport from "../components/ReportExport";
 
 const Reports = () => {
+=======
+import React, { useState } from "react";
+import AdminLayout from "../components/AdminLayout";
+import ReportCards from "../components/Reports/ReportCards";
+import ReportFilters from "../components/Reports/ReportFilters";
+import SalesReport from "../components/Reports/SalesReport";
+import LeadReport from "../components/Reports/LeadReport";
+import InvoiceReport from "../components/Reports/InvoiceReport";
+import TaskReport from "../components/Reports/TaskReport";
+import ExportReportModal from "../components/Reports/ExportReportModal";
+import "../styles/reports.css";
+
+const Reports = () => {
+
+  const [isExportOpen, setIsExportOpen] = useState(false);
+
+  const reportData = {
+    totalLeads: 248,
+    totalQuotations: 185,
+    totalInvoices: 152,
+    totalRevenue: 2450000,
+    pendingTasks: 18,
+  };
+
+>>>>>>> aruna
   return (
     <AdminLayout>
 
@@ -16,6 +42,7 @@ const Reports = () => {
 
           <h2>Reports</h2>
 
+<<<<<<< HEAD
         </div>
 
          <ReportCards />
@@ -28,6 +55,33 @@ const Reports = () => {
         <ReportTable />
 
         
+=======
+          <button
+            className="export-btn"
+            onClick={() => setIsExportOpen(true)}
+          >
+            Export Report
+          </button>
+
+        </div>
+
+        <ReportFilters />
+
+        <ReportCards reportData={reportData} />
+
+        <SalesReport />
+
+        <LeadReport />
+
+        <InvoiceReport />
+
+        <TaskReport />
+
+        <ExportReportModal
+          isOpen={isExportOpen}
+          onClose={() => setIsExportOpen(false)}
+        />
+>>>>>>> aruna
 
       </div>
 
