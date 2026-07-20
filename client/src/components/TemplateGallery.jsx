@@ -4,12 +4,21 @@ import "../styles/templateGallery.css";
 const TemplateGallery = ({ templates, onSelect }) => {
 
   if (templates.length === 0) {
+
     return (
+
       <div className="no-template">
-        <h3>No Templates Available</h3>
-        <p>Click + Add Template to create your first template.</p>
+
+        <h2>No Templates Available</h2>
+
+        <p>
+          Click <strong>+ Add Template</strong> to create your first template.
+        </p>
+
       </div>
+
     );
+
   }
 
   return (
@@ -21,20 +30,59 @@ const TemplateGallery = ({ templates, onSelect }) => {
         <div
           key={template.id}
           className="template-item"
-          onClick={() => onSelect(template)}
         >
 
-          <img
-            src={template.image}
-            alt={template.title}
-            className="template-image"
-          />
+          {/* Preview */}
+
+          <div
+            className="template-preview"
+            onClick={() => onSelect(template)}
+          >
+
+            {template.image ? (
+
+              <img
+                src={template.image}
+                alt={template.title}
+                className="template-image"
+              />
+
+            ) : (
+
+              <div className="template-placeholder">
+                No Preview
+              </div>
+
+            )}
+
+          </div>
+
+          {/* Details */}
 
           <div className="template-info">
 
             <h4>{template.title}</h4>
 
-            <p>{template.platform}</p>
+            <p>
+              <strong>Category:</strong> {template.category}
+            </p>
+
+            <p>
+              <strong>Platform:</strong> {template.platform}
+            </p>
+
+          </div>
+
+          {/* Action */}
+
+          <div className="template-footer">
+
+            <button
+              className="preview-btn"
+              onClick={() => onSelect(template)}
+            >
+              👁 Preview
+            </button>
 
           </div>
 

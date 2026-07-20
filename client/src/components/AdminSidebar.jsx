@@ -40,7 +40,7 @@ const AdminSidebar = ({
          {
             name: "Clients",
             icon: <FiUsers />,
-            path: "/client-management",
+            path: "/clients",
         },
         {
             name: "Quotations",

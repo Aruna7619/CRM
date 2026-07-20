@@ -7,6 +7,7 @@ const TemplatePreviewModal = ({
   onUse,
   onDownload,
   onDelete,
+  isEmployee,
 }) => {
 
   if (!template) return null;
@@ -21,7 +22,7 @@ const TemplatePreviewModal = ({
 
         <div className="preview-header">
 
-          <h2>{template.title}</h2>
+          <h2>Template Preview</h2>
 
           <button
             className="close-btn"
@@ -36,13 +37,33 @@ const TemplatePreviewModal = ({
 
         <div className="preview-body">
 
-          <img
-            src={template.image}
-            alt={template.title}
-            className="preview-image"
-          />
+          <div className="preview-left">
 
-          <div className="preview-details">
+            <img
+              src={template.image}
+              alt={template.title}
+              className="preview-image"
+            />
+
+          </div>
+
+          <div className="preview-right">
+
+            <div className="detail-box">
+
+              <label>Template Name</label>
+
+              <p>{template.title}</p>
+
+            </div>
+
+            <div className="detail-box">
+
+              <label>Category</label>
+
+              <p>{template.category}</p>
+
+            </div>
 
             <div className="detail-box">
 
@@ -86,12 +107,16 @@ const TemplatePreviewModal = ({
             ⬇ Download
           </button>
 
-          <button
-            className="delete-btn"
-            onClick={() => onDelete(template.id)}
-          >
-            🗑 Delete
-          </button>
+          {!isEmployee && (
+
+            <button
+              className="delete-btn"
+              onClick={() => onDelete(template.id)}
+            >
+              🗑 Delete
+            </button>
+
+          )}
 
         </div>
 

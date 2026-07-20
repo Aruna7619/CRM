@@ -14,9 +14,12 @@ import Payments from "./pages/Payments";
 
 import SocialMediaLibrary from "./pages/SocialMediaLibrary";
 import SocialMediaTemplates from "./pages/SocialMediaTemplates";
+
 import Tasks from "./pages/Tasks";
 import Calendar from "./pages/Calendar";
-import Reports from "./pages/Reports";
+
+
+
 
 function App() {
   return (
@@ -40,6 +43,7 @@ function App() {
 
       <Route path="/social-media" element={<SocialMediaLibrary />} />
 
+
       <Route
         path="/social-media-templates"
         element={<SocialMediaTemplates />}
@@ -48,7 +52,9 @@ function App() {
       <Route path="/tasks" element={<Tasks />} />
 
       <Route path="/calendar" element={<Calendar />} />
-      <Route path="/reports" element={<Reports />} />
+      
+
+
     </Routes>
   );
 }

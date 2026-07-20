@@ -102,7 +102,7 @@ const SocialMediaTable = ({
                     onClick={() => onDownload(post)}
                     title="Download"
                   >
-                    <FiDownload />
+                    ⤓
                   </button>
 
                 </td>
