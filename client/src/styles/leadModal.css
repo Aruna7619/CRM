@@ -1,19 +1,23 @@
 .lead-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
   z-index: 1000;
 }
 
 .lead-modal {
   width: 700px;
-  max-width: 95%;
+  max-width: 100%;
+  max-height: 90vh;
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .lead-modal-header {
@@ -26,6 +30,7 @@
 
 .lead-modal-header h2 {
   margin: 0;
+  font-size: 22px;
 }
 
 .close-btn {
@@ -33,4 +38,55 @@
   background: transparent;
   font-size: 28px;
   cursor: pointer;
+  line-height: 1;
+}
+
+/* Make modal content scroll if it's large */
+.lead-modal > *:not(.lead-modal-header) {
+  overflow-y: auto;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 768px) {
+  .lead-modal {
+    width: 100%;
+    max-height: 92vh;
+  }
+
+  .lead-modal-header {
+    padding: 16px 20px;
+  }
+
+  .lead-modal-header h2 {
+    font-size: 20px;
+  }
+
+  .close-btn {
+    font-size: 24px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 480px) {
+  .lead-modal-overlay {
+    padding: 10px;
+  }
+
+  .lead-modal {
+    width: 100%;
+    max-height: 95vh;
+    border-radius: 10px;
+  }
+
+  .lead-modal-header {
+    padding: 15px;
+  }
+
+  .lead-modal-header h2 {
+    font-size: 18px;
+  }
+
+  .close-btn {
+    font-size: 22px;
+  }
 }
