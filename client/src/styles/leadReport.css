@@ -3,7 +3,9 @@
   background: #fff;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  box-sizing: border-box;
   overflow-x: auto;
 }
 
@@ -14,10 +16,12 @@
 .lead-report-header h3 {
   margin: 0;
   color: #1f2937;
+  font-size: 22px;
 }
 
 .lead-report-table {
   width: 100%;
+  min-width: 700px;
   border-collapse: collapse;
 }
 
@@ -26,10 +30,12 @@
   padding: 14px;
   text-align: left;
   border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
 }
 
 .lead-report-table th {
   background: #f8fafc;
+  font-weight: 600;
 }
 
 .lead-report-table tr:hover {
@@ -37,6 +43,7 @@
 }
 
 .lead-status {
+  display: inline-block;
   padding: 5px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -56,4 +63,53 @@
 .lead-status.lost {
   background: #fee2e2;
   color: #b91c1c;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 768px) {
+  .lead-report {
+    padding: 18px;
+  }
+
+  .lead-report-header h3 {
+    font-size: 20px;
+  }
+
+  .lead-report-table th,
+  .lead-report-table td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .lead-status {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 480px) {
+  .lead-report {
+    padding: 15px;
+    margin-top: 20px;
+  }
+
+  .lead-report-header h3 {
+    font-size: 18px;
+  }
+
+  .lead-report-table {
+    min-width: 600px;
+  }
+
+  .lead-report-table th,
+  .lead-report-table td {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .lead-status {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
 }
