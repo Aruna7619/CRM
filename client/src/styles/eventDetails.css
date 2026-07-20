@@ -1,0 +1,128 @@
+.event-details-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.event-details-modal {
+  width: 650px;
+  max-width: 95%;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.event-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 25px;
+  border-bottom: 1px solid #eee;
+}
+
+.event-details-header h2 {
+  margin: 0;
+}
+
+.close-btn {
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.event-details-content {
+  padding: 25px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.event-type {
+  background: #dbeafe;
+  color: #2563eb;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.detail-description {
+  margin-top: 25px;
+}
+
+.detail-description h4 {
+  margin-bottom: 10px;
+}
+
+.detail-description p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width:768px) {
+
+  .detail-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+}
+
+
+.event-details-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.edit-btn,
+.delete-btn,
+.close-btn-footer {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-btn {
+  background: #16a34a;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: #15803d;
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+.close-btn-footer {
+  background: #6b7280;
+  color: #fff;
+}
+
+.close-btn-footer:hover {
+  background: #4b5563;
+}
