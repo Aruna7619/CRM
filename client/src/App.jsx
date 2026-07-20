@@ -16,6 +16,8 @@ import SocialMediaLibrary from "./pages/SocialMediaLibrary";
 import SocialMediaTemplates from "./pages/SocialMediaTemplates";
 import Reports from "./pages/Reports";
 
+import Users from "./pages/Users";
+
 function App() {
   return (
     <Routes>
@@ -45,6 +47,8 @@ function App() {
 
 
 <Route path="/reports" element={<Reports />} />
+
+<Route path="/users" element={<Users />} />
     </Routes>
   );
 }
