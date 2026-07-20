@@ -1,0 +1,39 @@
+/* ================= Reports Page ================= */
+
+.reports-page{
+    padding:30px;
+    background:#f8fafc;
+    min-height:100vh;
+}
+
+/* ================= Header ================= */
+
+.reports-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.reports-header h2{
+    font-size:30px;
+    color:#1e293b;
+    font-weight:700;
+    margin:0;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:768px){
+
+    .reports-page{
+        padding:20px;
+    }
+
+    .reports-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+}

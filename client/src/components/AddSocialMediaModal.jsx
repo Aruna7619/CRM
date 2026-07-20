@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/addSocialMediaModal.css";
 
 const AddSocialMediaModal = ({
@@ -6,35 +7,10 @@ const AddSocialMediaModal = ({
   addPost,
   updatePost,
   editPost,
+  selectedTemplate,
 }) => {
 
-  // Dummy Templates (Later replace with API/Database)
-  const templates = [
-    {
-      id: 1,
-      title: "Home Loan EMI",
-      category: "Home Loan",
-      platform: "Instagram",
-      caption: "Own your dream home with lowest EMI.",
-      media: "home-loan.jpg",
-    },
-    {
-      id: 2,
-      title: "Gold Loan Banner",
-      category: "Gold Loan",
-      platform: "Facebook",
-      caption: "Instant Gold Loan at low interest.",
-      media: "gold-loan.jpg",
-    },
-    {
-      id: 3,
-      title: "Festival Wishes",
-      category: "Festival",
-      platform: "WhatsApp",
-      caption: "Happy Festival to Everyone!",
-      media: "festival.jpg",
-    },
-  ];
+  const navigate = useNavigate();
 
   const [post, setPost] = useState({
     title: "",
@@ -46,70 +22,97 @@ const AddSocialMediaModal = ({
     status: "Approved",
   });
 
+  // Edit Mode
   useEffect(() => {
     if (editPost) {
       setPost(editPost);
     }
   }, [editPost]);
 
+  // Auto Fill from Selected Template
+  useEffect(() => {
+
+    if (selectedTemplate) {
+
+      setPost((prev) => ({
+        ...prev,
+        template: selectedTemplate.title,
+        title: selectedTemplate.title || "",
+        category: selectedTemplate.category || "",
+        platform: selectedTemplate.platform || "",
+        caption: selectedTemplate.caption || "",
+        media: selectedTemplate.image || "",
+      }));
+
+    }
+
+  }, [selectedTemplate]);
+
   const handleChange = (e) => {
+
     setPost({
       ...post,
       [e.target.name]: e.target.value,
     });
+
   };
 
-  // Template Selection
+  // Choose Template
   const handleTemplateChange = (e) => {
 
-    const templateId = e.target.value;
+    const value = e.target.value;
 
-    const selected = templates.find(
-      (item) => item.id === Number(templateId)
-    );
+    if (value === "choose") {
 
-    if (!selected) {
-      setPost({
-        ...post,
-        template: "",
+      closeModal();
+
+      navigate("/social-media-templates", {
+        state: {
+          mode: "employee",
+        },
       });
+
       return;
     }
 
     setPost({
       ...post,
-      template: templateId,
-      title: selected.title,
-      category: selected.category,
-      platform: selected.platform,
-      caption: selected.caption,
-      media: selected.media,
+      template: value,
     });
 
   };
 
   const handleFileChange = (e) => {
+
     setPost({
       ...post,
       media: e.target.files[0]?.name || "",
     });
+
   };
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
 
     if (editPost) {
+
       updatePost(post);
       alert("Post Updated Successfully!");
+
     } else {
+
       addPost(post);
       alert("Post Uploaded Successfully!");
+
     }
 
     closeModal();
+
   };
 
   return (
+
     <div className="modal-overlay">
 
       <div className="modal-box">
@@ -128,16 +131,9 @@ const AddSocialMediaModal = ({
             onChange={handleTemplateChange}
           >
             <option value="">None</option>
-
-            {templates.map((template) => (
-              <option
-                key={template.id}
-                value={template.id}
-              >
-                {template.title}
-              </option>
-            ))}
-
+            <option value="choose">
+              Choose Template...
+            </option>
           </select>
 
           <input
@@ -222,6 +218,7 @@ const AddSocialMediaModal = ({
       </div>
 
     </div>
+
   );
 };
 

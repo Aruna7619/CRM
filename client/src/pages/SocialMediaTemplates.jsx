@@ -1,21 +1,61 @@
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import AdminLayout from "../components/AdminLayout";
 import AddTemplateModal from "../components/AddTemplateModal";
 import TemplateGallery from "../components/TemplateGallery";
 import TemplatePreviewModal from "../components/TemplatePreviewModal";
 
+import { useTemplate } from "../context/TemplateContext";
+
 import "../styles/socialMediaTemplates.css";
 
 const SocialMediaTemplates = () => {
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { setSelectedTemplate } = useTemplate();
+
+  // Change to "employee" to test employee view
+  const userRole = "admin";
+
+  const employeeMode = location.state?.mode === "employee";
+
+  const hideAdminControls =
+    userRole === "employee" || employeeMode;
+
   const [showModal, setShowModal] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
+  const [selected, setSelected] = useState(null);
 
-  const [selectedTemplate, setSelectedTemplate] = useState(null);
+  const [templates, setTemplates] = useState([
+    {
+      id: 1,
+      title: "Home Loan EMI",
+      category: "Home Loan",
+      platform: "Instagram",
+      caption: "Own your dream home with lowest EMI.",
+      image: "https://via.placeholder.com/350x500",
+    },
+    {
+      id: 2,
+      title: "Gold Loan Banner",
+      category: "Gold Loan",
+      platform: "Facebook",
+      caption: "Instant Gold Loan at low interest.",
+      image: "https://via.placeholder.com/350x500",
+    },
+    {
+      id: 3,
+      title: "Festival Wishes",
+      category: "Festival",
+      platform: "WhatsApp",
+      caption: "Happy Festival!",
+      image: "https://via.placeholder.com/350x500",
+    },
+  ]);
 
-  const [templates, setTemplates] = useState([]);
-
-  // Add Template
   const addTemplate = (newTemplate) => {
     setTemplates([
       ...templates,
@@ -26,34 +66,42 @@ const SocialMediaTemplates = () => {
     ]);
   };
 
-  // Open Preview
   const handleSelect = (template) => {
-    setSelectedTemplate(template);
+    setSelected(template);
     setShowPreview(true);
   };
 
-  // Use Template
   const handleUse = (template) => {
-    alert(`"${template.title}" selected successfully.`);
-    setShowPreview(false);
+
+    // Save selected template globally
+    setSelectedTemplate(template);
+
+    // Return to Social Media Library
+    navigate("/social-media");
+
   };
 
-  // Download Template
   const handleDownload = (template) => {
+
     const link = document.createElement("a");
     link.href = template.image;
     link.download = template.title;
     link.click();
+
   };
 
-  // Delete Template
   const handleDelete = (id) => {
+
     if (window.confirm("Delete this template?")) {
+
       setTemplates(
-        templates.filter((template) => template.id !== id)
+        templates.filter((item) => item.id !== id)
       );
+
       setShowPreview(false);
+
     }
+
   };
 
   return (
@@ -66,12 +114,16 @@ const SocialMediaTemplates = () => {
 
           <h2>Social Media Templates</h2>
 
-          <button
-            className="add-template-btn"
-            onClick={() => setShowModal(true)}
-          >
-            + Add Template
-          </button>
+          {!hideAdminControls && (
+
+            <button
+              className="add-template-btn"
+              onClick={() => setShowModal(true)}
+            >
+              + Add Template
+            </button>
+
+          )}
 
         </div>
 
@@ -82,9 +134,7 @@ const SocialMediaTemplates = () => {
 
       </div>
 
-      {/* Add Template */}
-
-      {showModal && (
+      {!hideAdminControls && showModal && (
 
         <AddTemplateModal
           closeModal={() => setShowModal(false)}
@@ -93,19 +143,18 @@ const SocialMediaTemplates = () => {
 
       )}
 
-      {/* Preview Template */}
-
       {showPreview && (
 
         <TemplatePreviewModal
-          template={selectedTemplate}
+          template={selected}
           closeModal={() => {
             setShowPreview(false);
-            setSelectedTemplate(null);
+            setSelected(null);
           }}
           onUse={handleUse}
           onDownload={handleDownload}
-          onDelete={handleDelete}
+          onDelete={!hideAdminControls ? handleDelete : null}
+          isEmployee={hideAdminControls}
         />
 
       )}
@@ -113,6 +162,7 @@ const SocialMediaTemplates = () => {
     </AdminLayout>
 
   );
+
 };
 
 export default SocialMediaTemplates;

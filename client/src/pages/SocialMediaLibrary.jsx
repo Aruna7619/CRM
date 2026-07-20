@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminLayout from "../components/AdminLayout";
 import SocialMediaTable from "../components/SocialMediaTable";
 import AddSocialMediaModal from "../components/AddSocialMediaModal";
 import ViewSocialMediaModal from "../components/ViewSocialMediaModal";
+import { useTemplate } from "../context/TemplateContext";
 
 import "../styles/socialMedia.css";
 
@@ -25,6 +26,8 @@ const [selectedDownload, setSelectedDownload] = useState(null);
  
 
   const [search, setSearch] = useState("");
+
+  
 
   const [posts, setPosts] = useState([
     {
@@ -140,6 +143,24 @@ const confirmDownload = () => {
   setShowDownloadModal(false);
   setSelectedDownload(null);
 };
+
+
+const {
+  selectedTemplate,
+  setSelectedTemplate,
+} = useTemplate();
+
+useEffect(() => {
+
+  if (selectedTemplate) {
+
+    setEditPost(null);
+    setShowModal(true);
+
+  }
+
+}, [selectedTemplate]);
+
   return (
 
     <AdminLayout>
@@ -185,11 +206,15 @@ const confirmDownload = () => {
 
       {showModal && (
         <AddSocialMediaModal
-          closeModal={() => setShowModal(false)}
-          addPost={addPost}
-          updatePost={updatePost}
-          editPost={editPost}
-        />
+  closeModal={() => {
+    setShowModal(false);
+    setSelectedTemplate(null);
+  }}
+  addPost={addPost}
+  updatePost={updatePost}
+  editPost={editPost}
+  selectedTemplate={selectedTemplate}
+/>
       )}
 
       {showViewModal && (

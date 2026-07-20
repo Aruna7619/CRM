@@ -1,0 +1,92 @@
+/* ================= Table Container ================= */
+
+.report-table-container{
+    background:#fff;
+    margin-top:30px;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    border:1px solid #e5e7eb;
+}
+
+/* ================= Table ================= */
+
+.report-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.report-table thead{
+    background:#2563eb;
+}
+
+.report-table thead th{
+    color:#fff;
+    padding:16px;
+    text-align:left;
+    font-size:15px;
+    font-weight:600;
+}
+
+.report-table tbody td{
+    padding:16px;
+    border-bottom:1px solid #e5e7eb;
+    color:#475569;
+    font-size:14px;
+}
+
+.report-table tbody tr:hover{
+    background:#f8fafc;
+}
+
+/* ================= Status ================= */
+
+.report-success{
+    background:#dcfce7;
+    color:#15803d;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.report-pending{
+    background:#fef3c7;
+    color:#b45309;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+/* ================= Action ================= */
+
+.view-report-btn{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:#fff;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.3s;
+}
+
+.view-report-btn:hover{
+    background:#1d4ed8;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:768px){
+
+    .report-table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+}
