@@ -1,0 +1,85 @@
+.task-report {
+  margin-top: 25px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  overflow-x: auto;
+}
+
+.task-report-header {
+  margin-bottom: 20px;
+}
+
+.task-report-header h3 {
+  margin: 0;
+  color: #1f2937;
+}
+
+.task-report-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-report-table th,
+.task-report-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.task-report-table th {
+  background: #f8fafc;
+}
+
+.task-report-table tr:hover {
+  background: #f9fafb;
+}
+
+/* Priority */
+
+.priority {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.priority.high {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.priority.medium {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.priority.low {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* Status */
+
+.status {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.pending {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.status.in-progress {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status.completed {
+  background: #dcfce7;
+  color: #15803d;
+}
