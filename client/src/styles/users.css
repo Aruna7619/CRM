@@ -1,0 +1,47 @@
+.users-page{
+    padding:25px;
+}
+
+.users-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.users-header h2{
+    margin:0;
+    color:#1e293b;
+    font-size:28px;
+    font-weight:700;
+}
+
+.add-user-btn{
+    border:none;
+    background:#2563eb;
+    color:#fff;
+    padding:12px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.add-user-btn:hover{
+    background:#1d4ed8;
+}
+
+@media(max-width:768px){
+
+    .users-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .add-user-btn{
+        width:100%;
+    }
+
+}

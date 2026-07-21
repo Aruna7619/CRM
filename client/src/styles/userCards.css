@@ -1,0 +1,82 @@
+/* ================= User Cards Grid ================= */
+
+.user-card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:24px;
+    margin:30px 0;
+}
+
+/* ================= Card ================= */
+
+.user-card{
+    background:#fff;
+    border-radius:16px;
+    padding:22px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.user-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 24px rgba(0,0,0,.12);
+}
+
+/* ================= Icon ================= */
+
+.user-card-icon{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#2563eb;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    flex-shrink:0;
+}
+
+/* ================= Text ================= */
+
+.user-card h4{
+    margin:0;
+    font-size:15px;
+    color:#64748b;
+    font-weight:600;
+}
+
+.user-card h2{
+    margin-top:8px;
+    font-size:28px;
+    color:#1e293b;
+    font-weight:700;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:768px){
+
+    .user-card-grid{
+        grid-template-columns:1fr;
+    }
+
+    .user-card{
+        padding:18px;
+    }
+
+    .user-card-icon{
+        width:55px;
+        height:55px;
+        font-size:24px;
+    }
+
+    .user-card h2{
+        font-size:24px;
+    }
+
+}

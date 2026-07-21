@@ -13,6 +13,7 @@ import Tasks from "./pages/Tasks";
 import Calendar from "./pages/Calendar";
 import Reports from "./pages/Reports";
 import Users from "./pages/Users";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
 
       {/* Users */}
       <Route path="/users" element={<Users />} />
+
+
+      <Route path="/settings" element={<Settings />} />
     </Routes>
   );
 }

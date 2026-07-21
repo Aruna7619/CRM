@@ -1,0 +1,91 @@
+/* ================= Profile Section ================= */
+
+.profile-photo-section{
+    grid-column:1 / -1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+    margin-bottom:10px;
+}
+
+/* ================= Profile Image ================= */
+
+.profile-photo{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #2563eb;
+}
+
+/* ================= Placeholder ================= */
+
+.profile-placeholder{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:#e2e8f0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:50px;
+    border:4px solid #2563eb;
+}
+
+/* ================= Upload ================= */
+
+.profile-photo-section input[type="file"]{
+    border:none;
+    background:none;
+    padding:0;
+    cursor:pointer;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:768px){
+
+    .profile-photo,
+    .profile-placeholder{
+        width:100px;
+        height:100px;
+    }
+
+}
+
+
+
+
+/* ================= View Mode ================= */
+
+.profile-view{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+}
+
+.profile-info{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/* ================= Upload Button ================= */
+
+.upload-photo-btn{
+    background:#2563eb;
+    color:#fff;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.upload-photo-btn:hover{
+    background:#1d4ed8;
+}

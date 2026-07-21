@@ -1,0 +1,37 @@
+/* ================= Settings Page ================= */
+
+.settings-page{
+    padding:25px;
+    background:#f8fafc;
+    min-height:100vh;
+}
+
+/* ================= Header ================= */
+
+.settings-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.settings-header h2{
+    margin:0;
+    color:#1e293b;
+    font-size:28px;
+    font-weight:700;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:768px){
+
+    .settings-page{
+        padding:15px;
+    }
+
+    .settings-header h2{
+        font-size:24px;
+    }
+
+}
