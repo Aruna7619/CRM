@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FiMenu } from "react-icons/fi";
 import {
-    FiGrid,
-    FiUsers,
-    FiFileText,
-    FiCreditCard,
-    FiDollarSign,
-    FiUser,
-    FiLogOut
+  FiMenu,
+  FiGrid,
+  FiUsers,
+  FiFileText,
+  FiCreditCard,
+  FiDollarSign,
+  FiUser,
+  FiLogOut,
+  FiClipboard,
+  FiCalendar,
+  FiSettings,
+  FiCheckSquare,
 } from "react-icons/fi";
 
 import { BsBank } from "react-icons/bs";
 import { HiOutlineDocumentReport } from "react-icons/hi";
+import { MdOutlineWorkOutline } from "react-icons/md";
+import { FaHashtag } from "react-icons/fa";
+
 
 import "../styles/adminSidebar.css";
 
@@ -26,68 +33,72 @@ const AdminSidebar = ({
 
 
     const menuItems = [
-        {
-            name: "Dashboard",
-            icon: <FiGrid />,
-            path: "/dashboard",
-        },
-
-        {
-            name: "Leads",
-            icon: <FiFileText />,
-            path: "/leads",
-        },
-         {
-            name: "Clients",
-            icon: <FiUsers />,
-            path: "/clients",
-        },
-        {
-            name: "Quotations",
-            icon: <BsBank />,
-            path: "/quotations",
-        },
-        {
-            name: "Invoices",
-            icon: <FiCreditCard />,
-            path: "/invoices",
-        },
-        {
-            name: "Payments",
-            icon: <FiDollarSign />,
-            path: "/payments",
-        },
-        {
-            name: "Social Media",
-            icon: <HiOutlineDocumentReport />,
-            path: "/social-media",
-        },
-        {
-            name: "Tasks",
-            icon: <FiUser />,
-            path: "/tasks",
-        },
-        {
-            name: "Calendar",
-            icon: <FiGrid />,
-            path: "/calendar",
-        },
-        {
-            name: "Reports",
-            icon: <HiOutlineDocumentReport />,
-            path: "/reports",
-        },
-        {
-            name: "Settings",
-            icon: <FiUser />,
-            path: "/settings",
-        },
-        {
-            name: "Users",
-            icon: <FiUser />,
-            path: "/users",
-        }
-    ];
+  {
+    name: "Dashboard",
+    icon: <FiGrid />,
+    path: "/dashboard",
+  },
+  {
+    name: "Leads",
+    icon: <FiFileText />,
+    path: "/leads",
+  },
+  {
+    name: "Clients",
+    icon: <FiUsers />,
+    path: "/clients",
+  },
+  {
+    name: "Employees",
+    icon: <MdOutlineWorkOutline />,
+    path: "/employees",
+  },
+  {
+    name: "Quotations",
+    icon: <BsBank />,
+    path: "/quotations",
+  },
+  {
+    name: "Invoices",
+    icon: <FiCreditCard />,
+    path: "/invoices",
+  },
+  {
+    name: "Payments",
+    icon: <FiDollarSign />,
+    path: "/payments",
+  },
+  {
+    name: "Social Media",
+    icon: <FaHashtag />,
+    path: "/social-media",
+  },
+  {
+    name: "Tasks",
+    icon: <FiCheckSquare />,
+    path: "/tasks",
+  },
+  {
+    name: "Calendar",
+    icon: <FiCalendar />,
+    path: "/calendar",
+  },
+  {
+    name: "Reports",
+    icon: <HiOutlineDocumentReport />,
+    path: "/reports",
+  },
+  {
+    name: "Settings",
+    icon: <FiSettings />,
+    path: "/settings",
+  },
+  {
+    name: "Users",
+    icon: <FiUser />,
+    path: "/users",
+  },
+];
 
     return (<aside
         className={`admin-sidebar 

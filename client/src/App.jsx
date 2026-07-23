@@ -14,6 +14,7 @@ import Calendar from "./pages/Calendar";
 import Reports from "./pages/Reports";
 import Users from "./pages/Users";
 import Settings from "./pages/Settings";
+import Employees from "./pages/Employees";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
 
 
       <Route path="/settings" element={<Settings />} />
+      <Route path="/employees" element={<Employees />} />
     </Routes>
   );
 }

@@ -1,47 +1,43 @@
-/* ================= Cards Grid ================= */
+/* ==========================================================
+   Report Cards
+========================================================== */
 
-.report-card-grid {
+.report-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-  margin-bottom: 35px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
 }
 
-/* ================= Card ================= */
-
 .report-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 22px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
   border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: 0.3s;
 }
 
 .report-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* ================= Icon ================= */
-
 .report-icon {
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  background: #2563eb;
-  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #ffffff;
   font-size: 28px;
   flex-shrink: 0;
 }
-
-/* ================= Text ================= */
 
 .report-info {
   flex: 1;
@@ -49,24 +45,36 @@
 
 .report-info h4 {
   margin: 0;
-  color: #64748b;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
+  color: #6b7280;
 }
 
 .report-info h2 {
   margin-top: 8px;
-  color: #1e293b;
   font-size: 28px;
   font-weight: 700;
+  color: #111827;
+  word-break: break-word;
 }
 
-/* ================= Responsive ================= */
+/* ==========================================
+   Large Screens
+========================================== */
 
-@media (max-width: 768px) {
-  .report-card-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+@media (min-width: 1200px) {
+  .report-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================
+   Tablets
+========================================== */
+
+@media (max-width: 992px) {
+  .report-cards {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .report-card {
@@ -84,20 +92,26 @@
   }
 }
 
-@media (max-width: 480px) {
-  .report-card-grid {
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width: 576px) {
+  .report-cards {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .report-card {
     padding: 16px;
-    gap: 15px;
+    gap: 14px;
   }
 
   .report-icon {
     width: 50px;
     height: 50px;
     font-size: 22px;
+    border-radius: 12px;
   }
 
   .report-info h4 {
@@ -106,5 +120,6 @@
 
   .report-info h2 {
     font-size: 22px;
+    margin-top: 6px;
   }
 }

@@ -15,136 +15,253 @@ const InvoicePDFPreview = ({
 
 
 
-  const downloadPDF = () => {
+ const downloadPDF = () => {
 
+  const doc = new jsPDF();
 
-    const doc = new jsPDF();
+  const primary = [41, 128, 185];
 
+  // =============================
+  // Company Header
+  // =============================
 
+  doc.setFillColor(...primary);
+  doc.rect(0, 0, 210, 35, "F");
 
-    doc.setFontSize(20);
+  doc.setTextColor(255);
 
-    doc.text(
-      "INVOICE",
-      14,
-      20
-    );
+  doc.setFontSize(22);
+  doc.setFont("helvetica", "bold");
 
+  doc.text(
+    "YOUR COMPANY NAME",
+    105,
+    15,
+    { align: "center" }
+  );
 
+  doc.setFontSize(10);
+  doc.setFont("helvetica", "normal");
 
-    doc.setFontSize(12);
+  doc.text(
+    "123 Business Street, Bangalore",
+    105,
+    23,
+    { align: "center" }
+  );
 
+  doc.text(
+    "Phone : +91 9876543210",
+    105,
+    29,
+    { align: "center" }
+  );
 
-    doc.text(
-      `Invoice No: ${invoice.invoiceNo}`,
-      14,
-      35
-    );
+  // =============================
+  // Invoice Title
+  // =============================
 
+  doc.setTextColor(0);
 
-    doc.text(
-      `Date: ${invoice.date}`,
-      14,
-      45
-    );
+  doc.setFontSize(20);
+  doc.setFont("helvetica", "bold");
 
+  doc.text(
+    "INVOICE",
+    105,
+    50,
+    { align: "center" }
+  );
 
-    doc.text(
-      `Due Date: ${invoice.dueDate}`,
-      14,
-      55
-    );
+  // =============================
+  // Invoice Information
+  // =============================
 
+  doc.setFontSize(11);
+  doc.setFont("helvetica", "normal");
 
+  doc.text(
+    `Invoice No : ${invoice.invoiceNo}`,
+    15,
+    65
+  );
 
-    doc.text(
-      `Client: ${invoice.client}`,
-      14,
-      70
-    );
+  doc.text(
+    `Invoice Date : ${invoice.date}`,
+    15,
+    72
+  );
 
+  doc.text(
+    `Due Date : ${invoice.dueDate}`,
+    140,
+    65
+  );
 
-    doc.text(
-      `Phone: ${invoice.phone}`,
-      14,
-      80
-    );
+  doc.text(
+    `Status : ${invoice.status}`,
+    140,
+    72
+  );
 
+  // =============================
+  // Bill To
+  // =============================
 
-    doc.text(
-      `Email: ${invoice.email}`,
-      14,
-      90
-    );
+  doc.setFillColor(240);
+  doc.rect(15, 80, 180, 10, "F");
 
+  doc.setFont("helvetica", "bold");
+  doc.text("Bill To", 18, 87);
 
+  doc.setFont("helvetica", "normal");
 
+  doc.text(invoice.client, 18, 97);
+  doc.text(invoice.phone, 18, 104);
+  doc.text(invoice.email, 18, 111);
 
-    autoTable(doc,{
+  // =============================
+  // Products Table
+  // =============================
 
-      startY:105,
+  autoTable(doc, {
 
-      head:[
-        [
-          "Product",
-          "Qty",
-          "Price",
-          "GST",
-          "Total"
-        ]
-      ],
+    startY: 120,
 
+    head: [[
+      "Product",
+      "Qty",
+      "Price",
+      "GST",
+      "Amount"
+    ]],
 
-      body:
+    body: invoice.products.map(item => [
 
-      invoice.products.map(
-        (item)=>[
+      item.name,
 
-          item.name,
+      item.qty,
 
-          item.qty,
+      `Rs. ${item.price}`,
 
-          `₹${item.price}`,
+      `${item.gst}%`,
 
-          `${item.gst}%`,
+      `Rs. ${(
+        item.qty *
+        item.price *
+        (1 + item.gst / 100)
+      ).toFixed(2)}`
 
-          `₹${
-            (
-              Number(item.qty) *
-              Number(item.price) +
-              (
-                Number(item.qty) *
-                Number(item.price) *
-                Number(item.gst)/100
-              )
-            )
-          }`
+    ]),
 
-        ]
-      )
+    theme: "grid",
 
-    });
+    headStyles: {
 
+      fillColor: primary,
 
+      textColor: 255,
 
-    const finalY =
-      doc.lastAutoTable.finalY + 15;
+      halign: "center",
 
+      fontStyle: "bold",
 
+    },
 
-    doc.text(
-      `Grand Total: ₹${invoice.amount}`,
-      14,
-      finalY
-    );
+    bodyStyles: {
 
+      halign: "center",
 
+    },
 
-    doc.save(
-      `${invoice.invoiceNo}.pdf`
-    );
+    alternateRowStyles: {
 
-  };
+      fillColor: [248,248,248]
+
+    }
+
+  });
+
+  // =============================
+  // Total
+  // =============================
+
+  const finalY =
+    doc.lastAutoTable.finalY + 12;
+
+  doc.setFont("helvetica", "bold");
+
+  doc.text(
+    `Grand Total : Rs. ${Number(invoice.amount).toFixed(2)}`,
+    135,
+    finalY
+  );
+
+  // =============================
+  // Payment Information
+  // =============================
+
+  doc.setFont("helvetica", "bold");
+
+  doc.text(
+    "Payment Information",
+    15,
+    finalY + 20
+  );
+
+  doc.setFont("helvetica", "normal");
+
+  doc.text(
+    [
+      "Bank : HDFC Bank",
+      "Account No : 1234567890",
+      "IFSC : HDFC0001234"
+    ],
+    15,
+    finalY + 28
+  );
+
+  // =============================
+  // Notes
+  // =============================
+
+  doc.setFont("helvetica", "bold");
+
+  doc.text(
+    "Notes",
+    15,
+    finalY + 55
+  );
+
+  doc.setFont("helvetica", "normal");
+
+  doc.text(
+    invoice.notes || "Thank you for your business.",
+    15,
+    finalY + 63
+  );
+
+  // =============================
+  // Signature
+  // =============================
+
+  doc.setFont("helvetica", "bold");
+
+  doc.text(
+    "Authorized Signature",
+    140,
+    finalY + 80
+  );
+
+  doc.line(
+    135,
+    finalY + 76,
+    190,
+    finalY + 76
+  );
+
+  doc.save(`${invoice.invoiceNo}.pdf`);
+};
 
 
 
