@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "../styles/login.css";
+import api from "../services/api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,47 +12,46 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("Admin");
-const handleLogin = (e) => {
+  
+
+
+const handleLogin = async (e) => {
   e.preventDefault();
 
-  // Check empty fields
-  if (email.trim() === "" || password.trim() === "") {
-    alert("Please enter Email and Password.");
+  if (!email || !password) {
+    alert("Please enter Email and Password");
     return;
   }
 
-  // Admin Login
-  if (
-    email === "admin@gmail.com" &&
-    password === "admin123" &&
-    role === "Admin"
-  ) {
-    navigate("/dashboard");
-    return;
-  }
+  try {
+    const response = await api.post("/auth/login", {
+    email,
+    password
+});
 
-  // Employee Login
-  if (
-    email === "employee@gmail.com" &&
-    password === "employee123" &&
-    role === "Employee"
-  ) {
-    navigate("/employee-dashboard");
-    return;
-  }
+    const result = response.data;
 
-  // Manager Login
-  if (
-    email === "manager@gmail.com" &&
-    password === "manager123" &&
-    role === "Manager"
-  ) {
-    navigate("/manager-dashboard");
-    return;
-  }
+    // Save token
+    localStorage.setItem("token", result.token);
 
-  alert("Invalid Email, Password or Role");
+    // Save user
+    localStorage.setItem("user", JSON.stringify(result.data));
+
+    alert(result.message);
+
+    // Redirect based on role
+    if (result.data.role_name === "Admin") {
+      navigate("/dashboard");
+    } else if (result.data.role_name === "Manager") {
+      navigate("/manager-dashboard");
+    } else {
+      navigate("/employee-dashboard");
+    }
+  } catch (error) {
+    alert(
+      error.response?.data?.message || "Invalid Email or Password"
+    );
+  }
 };
   return (
     <div className="login-container">
@@ -97,19 +98,7 @@ const handleLogin = (e) => {
             </div>
           </div>
 
-          {/* Role */}
-          <div className="login-group">
-            <label>Login As</label>
-
-            <select
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            >
-              <option value="Admin">Admin</option>
-              <option value="Employee">Employee</option>
-              <option value="Manager">Manager</option>
-            </select>
-          </div>
+          
 
           {/* Remember */}
           <div className="login-options">

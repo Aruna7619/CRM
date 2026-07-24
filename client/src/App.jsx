@@ -15,6 +15,7 @@ import Reports from "./pages/Reports";
 import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 import Employees from "./pages/Employees";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -23,7 +24,16 @@ function App() {
       <Route path="/" element={<Login />} />
 
       {/* Dashboard */}
-      <Route path="/dashboard" element={<Dashboard />} />
+
+
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
 
       {/* CRM */}
       <Route path="/leads" element={<Leads />} />
